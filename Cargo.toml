@@ -36,7 +36,6 @@ no_std = [
   "hashbrown",
 ]
 std = [
-  "fontdb/memmap",
   "fontdb/std",
   "rustybuzz/std",
   "sys-locale",
