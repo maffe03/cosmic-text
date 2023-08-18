@@ -104,10 +104,6 @@ impl FontSystem {
         self.font_cache
             .entry(id)
             .or_insert_with(|| {
-                #[cfg(feature = "std")]
-                unsafe {
-                    self.db.make_shared_face_data(id);
-                }
                 let face = self.db.face(id)?;
                 match Font::new(face) {
                     Some(font) => Some(Arc::new(font)),
@@ -167,7 +163,6 @@ impl FontSystem {
         #[cfg(target_os = "redox")]
         db.load_fonts_dir("/ui/fonts");
 
-        db.load_system_fonts();
 
         for source in fonts {
             db.load_font_source(source);

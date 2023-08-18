@@ -37,6 +37,7 @@ no_std = [
 ]
 std = [
   "fontdb/std",
+  "fontdb/fs",
   "rustybuzz/std",
   "sys-locale",
   "unicode-bidi/std",

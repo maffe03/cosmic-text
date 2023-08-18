@@ -118,8 +118,6 @@ impl Font {
                 log::warn!("Unsupported fontdb Source::File('{}')", path.display());
                 return None;
             }
-            #[cfg(feature = "std")]
-            fontdb::Source::SharedFile(_path, data) => Arc::clone(data),
         };
         font_inner::FontTryBuilder {
             id: info.id,
